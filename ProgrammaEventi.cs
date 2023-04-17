@@ -15,6 +15,9 @@ namespace csharp_gestore_eventi
 
         public ProgrammaEventi(string titolo)
         {
+            if (string.IsNullOrEmpty(titolo))
+                throw new ArgumentException("Il titolo dell'evento non può essere vuoto");
+
             Titolo = titolo;
             Eventi = new List<Evento>();
         }
@@ -49,7 +52,7 @@ namespace csharp_gestore_eventi
         {
             Eventi.Clear();
         }
-        
 
+        
     }
 }
